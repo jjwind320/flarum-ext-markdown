@@ -6,7 +6,7 @@
 
 本扩展包不能与以下扩展包兼容：
   
-* [farum/formatting](https://packagist.org/packages/flarum/markdown)
+* [farum/markdown](https://packagist.org/packages/flarum/markdown)
 
 ### 安装
 
