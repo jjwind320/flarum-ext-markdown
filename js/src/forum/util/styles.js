@@ -105,7 +105,8 @@ export const blockStyle = (textarea, arg) => {
   selectedText = expandSelectedText(textarea, prefixToUse, suffixToUse, arg.multiline);
   let selectionStart = textarea.selectionStart;
   let selectionEnd = textarea.selectionEnd;
-  const hasReplaceNext = replaceNext.length > 0 && suffixToUse.indexOf(replaceNext) > -1 && selectedText.length > 0;
+  // const hasReplaceNext = replaceNext.length > 0 && suffixToUse.indexOf(replaceNext) > -1 && selectedText.length > 0;
+  const hasReplaceNext = replaceNext.length > 0 && prefixToUse.indexOf(replaceNext) > -1 && selectedText.length > 0;
 
   if (surroundWithNewlines) {
     const ref = newlinesToSurroundSelectedText(textarea);
@@ -143,15 +144,18 @@ export const blockStyle = (textarea, arg) => {
     return { text: replacementText, selectionStart, selectionEnd };
   }
   else if (scanFor.length > 0 && selectedText.match(scanFor)) {
-    suffixToUse = suffixToUse.replace(replaceNext, selectedText);
+    // suffixToUse = suffixToUse.replace(replaceNext, selectedText);
+    prefixToUse = prefixToUse.replace(replaceNext, selectedText);
     const replacementText = prefixToUse + suffixToUse;
     selectionStart = selectionEnd = selectionStart + prefixToUse.length;
     return { text: replacementText, selectionStart, selectionEnd };
   }
   else {
     const replacementText = prefixToUse + selectedText + suffixToUse;
-    selectionStart = selectionStart + prefixToUse.length + selectedText.length + suffixToUse.indexOf(replaceNext);
-    selectionEnd = selectionStart + replaceNext.length;
+    // selectionStart = selectionStart + prefixToUse.length + selectedText.length + suffixToUse.indexOf(replaceNext);
+    selectionStart = selectionStart + prefixToUse.length;
+    // selectionEnd = selectionStart + replaceNext.length;
+    selectionEnd = selectionStart + selectedText.length;
     return { text: replacementText, selectionStart, selectionEnd };
   }
 }

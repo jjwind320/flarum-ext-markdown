@@ -44,15 +44,13 @@ app.initializers.add('flarum-markdown', function(app) {
 
     items.add('markdown', (
       <MarkdownToolbar for={this.textareaId}>
-        <MarkdownButton title={tooltip('header')} icon="fas fa-heading" style={{ prefix: '### ' }} />
-        <MarkdownButton title={tooltip('bold')} icon="fas fa-bold" style={{ prefix: '**', suffix: '**', trimFirst: true }} hotkey="b" />
-        <MarkdownButton title={tooltip('italic')} icon="fas fa-italic" style={{ prefix: '_', suffix: '_', trimFirst: true }} hotkey="i" />
-        <MarkdownButton title={tooltip('quote')} icon="fas fa-quote-left" style={{ prefix: '> ', multiline: true, surroundWithNewlines: true }} />
-        <MarkdownButton title={tooltip('code')} icon="fas fa-code" style={{ prefix: '`', suffix: '`', blockPrefix: '```', blockSuffix: '```' }} />
-        <MarkdownButton title={tooltip('link')} icon="fas fa-link" style={{ prefix: '[', suffix: '](url)', replaceNext: 'url', scanFor: 'https?://' }} />
-        <MarkdownButton title={tooltip('image')} icon="fas fa-image" style={{ prefix: '![', suffix: '](src)', replaceNext: 'src', scanFor: 'https?://' }} />
-        <MarkdownButton title={tooltip('unordered_list')} icon="fas fa-list-ul" style={{ prefix: '- ', multiline: true, surroundWithNewlines: true }} />
-        <MarkdownButton title={tooltip('ordered_list')} icon="fas fa-list-ol" style={{ prefix: '1. ', multiline: true, orderedList: true }} />
+        <MarkdownButton title={tooltip('header')} icon="fas fa-heading" style={{ prefix: '[h3]', suffix: '[/h3]' }} />
+        <MarkdownButton title={tooltip('bold')} icon="fas fa-bold" style={{ prefix: '[b]', suffix: '[/b]', trimFirst: true }} hotkey="b" />
+        <MarkdownButton title={tooltip('italic')} icon="fas fa-italic" style={{ prefix: '[i]', suffix: '[/i]', trimFirst: true }} hotkey="i" />
+        <MarkdownButton title="居中" icon="fas fa-align-center" style={{ prefix: '[center]', suffix: '[/center]', trimFirst: true }} />
+        <MarkdownButton title={tooltip('quote')} icon="fas fa-quote-left" style={{ prefix: '[quote]', suffix: '[/quote]', multiline: true, surroundWithNewlines: true }} />
+        <MarkdownButton title={tooltip('link')} icon="fas fa-link" style={{ prefix: '[url=链接网址]', suffix: '[/url]', replaceNext: '链接网址', scanFor: 'https?://' }} />
+        <MarkdownButton title="影像阅片" icon="fas fa-laptop-medical" style={{ prefix: '[pacs=阅片地址]', suffix: '[/pacs]', replaceNext: '阅片地址', scanFor: 'https?://viewer.weiyun.rimag.com.cn/' }} />
       </MarkdownToolbar>
     ), 100);
   });
