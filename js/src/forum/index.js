@@ -50,7 +50,7 @@ app.initializers.add('flarum-markdown', function(app) {
         <MarkdownButton title="居中" icon="fas fa-align-center" style={{ prefix: '[center]', suffix: '[/center]', trimFirst: true }} />
         <MarkdownButton title={tooltip('quote')} icon="fas fa-quote-left" style={{ prefix: '[quote]', suffix: '[/quote]', multiline: true, surroundWithNewlines: true }} />
         <MarkdownButton title={tooltip('link')} icon="fas fa-link" style={{ prefix: '[url=链接网址]', suffix: '[/url]', replaceNext: '链接网址', scanFor: 'https?://' }} />
-        <MarkdownButton title="影像阅片" icon="fas fa-laptop-medical" style={{ prefix: '[pacs=阅片地址]', suffix: '[/pacs]', replaceNext: '阅片地址', scanFor: 'https?://viewer.weiyun.rimag.com.cn/' }} />
+        <MarkdownButton title="影像阅片" icon="fas fa-laptop-medical" style={{ prefix: '[pacs=阅片地址]', suffix: '', replaceNext: '阅片地址', scanFor: 'https?://viewer.weiyun.rimag.com.cn/' }} />
       </MarkdownToolbar>
     ), 100);
   });
